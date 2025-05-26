@@ -1,125 +1,87 @@
-<div style="max-width: 800px; margin: auto; font-family: sans-serif; display: flex; gap: 40px; align-items: center;">
-  <style>
-    .pie-container {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #6A5ACD 0% 32%,             /* Administración */
-        #6A5ACD 0% 0%,              /* hover layer default */
-        #FF6F61 32% 34%,            /* ETDH */
-        #FFA500 34% 51%,            /* Cibercolegio */
-        #3C3C88 51% 100%            /* Nómina docente */
-      );
-      animation: spin 2s ease-out forwards;
-      transform: rotate(-90deg); /* start from top */
-      cursor: pointer;
-    }
+<div style="display:flex; align-items:center; justify-content:center; font-family:sans-serif;">
+  <canvas id="donutChart" width="300" height="300"></canvas>
 
-    .pie-tooltip {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      color: #333;
-      padding: 6px 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      font-weight: bold;
-      display: none;
-      pointer-events: none;
-    }
-
-    .legend {
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      position: relative;
-    }
-
-    .legend-color {
-      width: 18px;
-      height: 18px;
-      border-radius: 3px;
-      margin-right: 10px;
-    }
-
-    @keyframes spin {
-      from { background: conic-gradient(#e0e0e0 0% 100%); }
-    }
-
-  </style>
-
-  <div class="pie-container" id="pie">
-    <div class="pie-tooltip" id="tooltip"></div>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item" data-label="Administración" data-percent="32%">
-      <div class="legend-color" style="background:#6A5ACD;"></div> Administración
-    </div>
-    <div class="legend-item" data-label="ETDH" data-percent="2%">
-      <div class="legend-color" style="background:#FF6F61;"></div> ETDH
-    </div>
-    <div class="legend-item" data-label="Cibercolegio" data-percent="17%">
-      <div class="legend-color" style="background:#FFA500;"></div> Cibercolegio
-    </div>
-    <div class="legend-item" data-label="Nómina docente" data-percent="49%">
-      <div class="legend-color" style="background:#3C3C88;"></div> Nómina docente
-    </div>
+  <div style="margin-left: 30px;">
+    <ul style="list-style:none; padding:0; font-size:14px;">
+      <li><span style="color:#4A90E2;">■</span> Administración: 32%</li>
+      <li><span style="color:#00CFC1;">■</span> ETDH: 2%</li>
+      <li><span style="color:#F9E44C;">■</span> Cibercolegio: 17%</li>
+      <li><span style="color:#FF7A59;">■</span> Nómina docente: 49%</li>
+    </ul>
   </div>
 
   <script>
-    const pie = document.getElementById('pie');
-    const tooltip = document.getElementById('tooltip');
-    const legendItems = document.querySelectorAll('.legend-item');
-
-    const sections = [
-      { label: "Administración", percent: 32, color: "#6A5ACD" },
-      { label: "ETDH", percent: 2, color: "#FF6F61" },
-      { label: "Cibercolegio", percent: 17, color: "#FFA500" },
-      { label: "Nómina docente", percent: 49, color: "#3C3C88" },
+    const data = [
+      { label: "Administración", value: 32, color: "#4A90E2" },
+      { label: "ETDH", value: 2, color: "#00CFC1" },
+      { label: "Cibercolegio", value: 17, color: "#F9E44C" },
+      { label: "Nómina docente", value: 49, color: "#FF7A59" }
     ];
 
-    let totalPercent = 0;
-    let gradient = sections.map(s => {
-      const start = totalPercent;
-      const end = totalPercent + s.percent;
-      const segment = `${s.color} ${start}% ${end}%`;
-      totalPercent = end;
-      return segment;
-    }).join(', ');
+    const canvas = document.getElementById('donutChart');
+    const ctx = canvas.getContext('2d');
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 120;
+    const innerRadius = 70;
 
-    // Apply after delay to show animation
-    setTimeout(() => {
-      pie.style.background = `conic-gradient(${gradient})`;
-    }, 500);
+    const total = data.reduce((sum, d) => sum + d.value, 0);
 
-    // Tooltip behavior
-    legendItems.forEach((item, index) => {
-      item.addEventListener('mouseenter', () => {
-        const percent = item.getAttribute('data-percent');
-        const label = item.getAttribute('data-label');
-        tooltip.textContent = `${label}: ${percent}`;
-        tooltip.style.display = 'block';
+    let currentAngle = -0.5 * Math.PI;
+    let i = 0;
+
+    function drawSegment(start, end, color) {
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, start, end);
+      ctx.arc(centerX, centerY, innerRadius, end, start, true);
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+
+    function drawText(percent, angle) {
+      const r = (radius + innerRadius) / 2;
+      const x = centerX + Math.cos(angle) * r;
+      const y = centerY + Math.sin(angle) * r + 5;
+      ctx.fillStyle = "#fff";
+      ctx.font = "bold 14px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(`${percent}%`, x, y);
+    }
+
+    function animateSegment(d, start, end, callback) {
+      const steps = 30;
+      let step = 0;
+      const angleDiff = end - start;
+
+      function stepDraw() {
+        const currentEnd = start + angleDiff * (step / steps);
+        drawSegment(start, currentEnd, d.color);
+        step++;
+        if (step <= steps) {
+          requestAnimationFrame(stepDraw);
+        } else {
+          const midAngle = start + angleDiff / 2;
+          drawText(d.value, midAngle);
+          callback();
+        }
+      }
+      stepDraw();
+    }
+
+    function drawChart() {
+      if (i >= data.length) return;
+      const d = data[i];
+      const angle = (d.value / total) * 2 * Math.PI;
+      const start = currentAngle;
+      const end = start + angle;
+      animateSegment(d, start, end, () => {
+        currentAngle = end;
+        i++;
+        drawChart();
       });
+    }
 
-      item.addEventListener('mouseleave', () => {
-        tooltip.style.display = 'none';
-      });
-    });
-
-    pie.addEventListener('mousemove', (e) => {
-      tooltip.style.left = e.offsetX + 'px';
-      tooltip.style.top = e.offsetY + 'px';
-    });
+    drawChart();
   </script>
 </div>
