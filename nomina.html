@@ -1,87 +1,112 @@
-<div style="display:flex; align-items:center; justify-content:center; font-family:sans-serif;">
-  <canvas id="donutChart" width="300" height="300"></canvas>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Distribución Nómina</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  <div style="margin-left: 30px;">
-    <ul style="list-style:none; padding:0; font-size:14px;">
-      <li><span style="color:#4A90E2;">■</span> Administración: 32%</li>
-      <li><span style="color:#00CFC1;">■</span> ETDH: 2%</li>
-      <li><span style="color:#F9E44C;">■</span> Cibercolegio: 17%</li>
-      <li><span style="color:#FF7A59;">■</span> Nómina docente: 49%</li>
-    </ul>
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .chart-wrapper {
+      width: 350px;
+      height: 350px;
+      position: relative;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .legend {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .legend span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 8px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="chart-wrapper">
+      <canvas id="chartNomina"></canvas>
+    </div>
+
+    <div class="legend">
+      <div><span style="background:#3f51b5;"></span> Administración: 32%</div>
+      <div><span style="background:#00bcd4;"></span> ETDH: 2%</div>
+      <div><span style="background:#cddc39;"></span> Cibercolegio: 17%</div>
+      <div><span style="background:#ff7043;"></span> Nómina docente: 49%</div>
+    </div>
   </div>
 
   <script>
-    const data = [
-      { label: "Administración", value: 32, color: "#4A90E2" },
-      { label: "ETDH", value: 2, color: "#00CFC1" },
-      { label: "Cibercolegio", value: 17, color: "#F9E44C" },
-      { label: "Nómina docente", value: 49, color: "#FF7A59" }
-    ];
-
-    const canvas = document.getElementById('donutChart');
-    const ctx = canvas.getContext('2d');
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const radius = 120;
-    const innerRadius = 70;
-
-    const total = data.reduce((sum, d) => sum + d.value, 0);
-
-    let currentAngle = -0.5 * Math.PI;
-    let i = 0;
-
-    function drawSegment(start, end, color) {
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius, start, end);
-      ctx.arc(centerX, centerY, innerRadius, end, start, true);
-      ctx.closePath();
-      ctx.fillStyle = color;
-      ctx.fill();
-    }
-
-    function drawText(percent, angle) {
-      const r = (radius + innerRadius) / 2;
-      const x = centerX + Math.cos(angle) * r;
-      const y = centerY + Math.sin(angle) * r + 5;
-      ctx.fillStyle = "#fff";
-      ctx.font = "bold 14px sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText(`${percent}%`, x, y);
-    }
-
-    function animateSegment(d, start, end, callback) {
-      const steps = 30;
-      let step = 0;
-      const angleDiff = end - start;
-
-      function stepDraw() {
-        const currentEnd = start + angleDiff * (step / steps);
-        drawSegment(start, currentEnd, d.color);
-        step++;
-        if (step <= steps) {
-          requestAnimationFrame(stepDraw);
-        } else {
-          const midAngle = start + angleDiff / 2;
-          drawText(d.value, midAngle);
-          callback();
-        }
-      }
-      stepDraw();
-    }
-
-    function drawChart() {
-      if (i >= data.length) return;
-      const d = data[i];
-      const angle = (d.value / total) * 2 * Math.PI;
-      const start = currentAngle;
-      const end = start + angle;
-      animateSegment(d, start, end, () => {
-        currentAngle = end;
-        i++;
-        drawChart();
-      });
-    }
-
-    drawChart();
+    const ctx = document.getElementById('chartNomina').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Administración', 'ETDH', 'Cibercolegio', 'Nómina docente'],
+        datasets: [{
+          data: [32, 2, 17, 49],
+          backgroundColor: [
+            '#3f51b5',
+            '#00bcd4',
+            '#cddc39',
+            '#ff7043'
+          ],
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true, 
+        animation: {
+          animateRotate: true,
+          duration: 2000,
+          easing: 'easeOutCirc'
+        },
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            color: '#fff',
+            font: {
+              weight: 'bold',
+              size: 16
+            },
+            formatter: (value, ctx) => {
+              const total = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = (value / total * 100).toFixed(0);
+              return `${percentage}%`;
+            }
+          }
+        },
+        cutout: '55%' // Grosor de la dona
+      },
+      plugins: [ChartDataLabels]
+    });
   </script>
-</div>
+</body>
+</html>
