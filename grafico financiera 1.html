@@ -1,0 +1,120 @@
+<div style="max-width:800px; font-family:sans-serif; align-items: center;">
+
+  <style>
+    .bar-container {
+      background: #eee;
+      margin: 6px 0;
+      position: relative;
+      height: 30px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0;
+      color: white;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 2s ease;
+    }
+
+    .label {
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .value {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #001F3F;
+    }
+  </style>
+
+  <div class="label">
+    <strong>Matrícula de Pregrado</strong>
+    <span class="value">$15.384.406.303</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#4CAF50;" data-width="100%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Proyectos y consultoría</strong>
+    <span class="value">$5.800.000.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#2196F3;" data-width="38%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Cibercolegio</strong>
+    <span class="value">$4.280.695.230</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#FF9800;" data-width="28%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Matrículas de Postgrados</strong>
+    <span class="value">$4.137.641.587</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#9C27B0;" data-width="27%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Ingresos no operacionales</strong>
+    <span class="value">$1.909.715.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#607D8B;" data-width="12%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Idiomas</strong>
+    <span class="value">$1.842.700.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#795548;" data-width="12%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Otros ingresos académicos</strong>
+    <span class="value">$1.068.115.796</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#009688;" data-width="7%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Matrículas ETDH</strong>
+    <span class="value">$774.286.730</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#F44336;" data-width="5%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Educación continuada</strong>
+    <span class="value">$540.000.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#3F51B5;" data-width="4%"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const bars = document.querySelectorAll('.bar');
+      bars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100); // pequeño retraso para que la animación se vea
+      });
+    });
+  </script>
+</div>
