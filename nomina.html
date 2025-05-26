@@ -1,0 +1,81 @@
+<div style="max-width:800px; font-family:sans-serif; align-items: center;">
+
+  <style>
+    .bar-container {
+      background: #eee;
+      margin: 6px 0;
+      position: relative;
+      height: 30px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0;
+      color: white;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 2s ease;
+    }
+
+    .label {
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .value {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #001F3F;
+    }
+  </style>
+
+  <div class="label">
+    <strong>Administración</strong>
+    <span class="value">32%</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#4CAF50;" data-width="32%"></div>
+  </div>
+
+  <div class="label">
+    <strong>ETDH</strong>
+    <span class="value">2%</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#FF5722;" data-width="2%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Cibercolegio</strong>
+    <span class="value">17%</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#3F51B5;" data-width="17%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Nómina docente</strong>
+    <span class="value">49%</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#009688;" data-width="49%"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const bars = document.querySelectorAll('.bar');
+      bars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+      });
+    });
+  </script>
+
+</div>

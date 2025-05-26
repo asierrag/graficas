@@ -1,0 +1,81 @@
+<div style="max-width:800px; font-family:sans-serif; align-items: center;">
+
+  <style>
+    .bar-container {
+      background: #eee;
+      margin: 6px 0;
+      position: relative;
+      height: 30px;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0;
+      color: white;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 2s ease;
+    }
+
+    .label {
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .value {
+      margin-left: 10px;
+      font-weight: bold;
+      color: #001F3F;
+    }
+  </style>
+
+  <div class="label">
+    <strong>Muebles y equipos de oficina</strong>
+    <span class="value">$80.000.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#4CAF50;" data-width="5.6%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Equipos de cómputo y comunicación</strong>
+    <span class="value">$135.048.990</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#2196F3;" data-width="9.4%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Infraestructura</strong>
+    <span class="value">$600.000.000</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#FF9800;" data-width="41.6%"></div>
+  </div>
+
+  <div class="label">
+    <strong>Software y licencias</strong>
+    <span class="value">$1.440.199.677</span>
+  </div>
+  <div class="bar-container">
+    <div class="bar" style="background:#9C27B0;" data-width="100%"></div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const bars = document.querySelectorAll('.bar');
+      bars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+      });
+    });
+  </script>
+
+</div>
