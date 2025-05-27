@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      font-size: 0.95em;
+    }
+
+    caption {
+      caption-side: top;
+      font-weight: 700;
+      font-size: 1.4em;
+      margin-bottom: 14px;
+      color: #0a1a56;
+      text-align: center;
+    }
+
+    thead {
+      background-color: #0a1a56;
+      color: white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f9fbff;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    tfoot tr {
+      background-color: #dbe2f2;
+      font-weight: 700;
+      color: #0a1a56;
+    }
+
+    td:first-child, th:first-child {
+      text-align: left;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 600,
+        'GRAD' 0,
+        'opsz' 48;
+      vertical-align: middle;
+      font-size: 20px;
+      margin-right: 6px;
+    }
+    .santarosa {
+      color: #009688;
+    }
+
+    .coltejer{
+      color: #9c27b0;
+    }
+
+  </style>
+</head>
+<body>
+
+<table>
+  <caption>Distribución de Empleados por Región</caption>
+  <thead>
+    <tr>
+      <th>Descripción de Empleados</th>
+      <th>Norte</th>
+      <th>Bajo Cauca</th>
+      <th>Valle de Aburrá</th>
+      <th>Oriente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="material-symbols-outlined santarosa">location_city</span>UCN Santa Rosa de Osos</td>
+      <td>50</td>
+      <td>1</td>
+      <td>3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><span class="material-symbols-outlined coltejer">apartment</span>UCN Coltejer</td>
+      <td>1</td>
+      <td></td>
+      <td>38</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>51</td>
+      <td>1</td>
+      <td>41</td>
+      <td>3</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>
