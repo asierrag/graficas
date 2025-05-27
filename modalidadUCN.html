@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Docentes - Modalidad de Teletrabajo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      font-size: 1.1em;
+      background-color: #f5f7fa;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      border-collapse: collapse;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    caption {
+      caption-side: top;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-bottom: 14px;
+      color: #0a1a56;
+      text-align: center;
+    }
+
+    thead {
+      background-color: #0a1a56;
+      color: white;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f9fbff;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    tfoot tr {
+      background-color: #dbe2f2;
+      font-weight: 700;
+      color: #0a1a56;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 600,
+        'GRAD' 0,
+        'opsz' 48;
+      vertical-align: middle;
+      font-size: 22px;
+      margin-right: 4px;
+    }
+
+    .autonomo {
+      color: #4caf50; /* verde */
+    }
+
+    .suplementario {
+      color: #ff9800; /* naranja */
+    }
+
+    .female {
+      color: #ec407a;
+    }
+
+    .male {
+      color: #42a5f5;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <caption>Docentes Educación Superior Tipo de Modalidad de Trabajo</caption>
+  <thead>
+    <tr>
+      <th>Género</th>
+      <th><span class="material-symbols-outlined autonomo">laptop</span> Teletrabajo Autónomo</th>
+      <th><span class="material-symbols-outlined suplementario">wifi</span> Teletrabajo Suplementario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="material-symbols-outlined female">female</span> Mujer</td>
+      <td>83</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td><span class="material-symbols-outlined male">male</span> Hombre</td>
+      <td>60</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>143</td>
+      <td>4</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>
