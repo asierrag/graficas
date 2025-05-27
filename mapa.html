@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Totales por Región - Antioquia</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: #fafafa;
-  }
-  .table-container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
-    overflow-x: auto;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 350px;
-  }
-  thead {
-    background: #6c8ebf;
-    color: #fff;
-  }
-  thead th {
-    padding: 12px 15px;
-    text-align: left;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-  }
-  tbody tr {
-    border-bottom: 1px solid #e0e0e0;
-    transition: background-color 0.3s ease;
-  }
-  tbody tr:hover {
-    background-color: #f0f5ff;
-  }
-  tbody td {
-    padding: 12px 15px;
-    color: #333;
-  }
-  tbody tr:last-child {
-    font-weight: 700;
-    background-color: #dbe9f7;
-  }
-  tbody tr:last-child td {
-    border-top: 2px solid #6c8ebf;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Totales por Región - Antioquia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: white; /* sin color gris */
+    }
+
+    .table-container {
+      max-width: 600px;
+      margin: auto;
+      overflow-x: auto;
+      /* sin fondo */
+      border-radius: 10px;
+      box-shadow: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background: #4a90e2;
+      color: white;
+    }
+
+    th, td {
+      padding: 6px 12px; /* menos alto */
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    tbody tr:hover {
+      background-color: #f0f7ff;
+    }
+
+    /* Solo las celdas de totales con color suave */
+    td:nth-child(2), td:nth-child(3), td:nth-child(4), td:nth-child(5) {
+      background-color: #e7f3ff;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+  </style>
 </head>
 <body>
 
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Región</th>
-        <th>Totales</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Bajo Cauca</td><td>159</td></tr>
-      <tr><td>Magdalena Medio</td><td>32</td></tr>
-      <tr><td>Nordeste</td><td>99</td></tr>
-      <tr><td>Norte</td><td>369</td></tr>
-      <tr><td>Occidente</td><td>108</td></tr>
-      <tr><td>Oriente</td><td>363</td></tr>
-      <tr><td>Suroeste</td><td>107</td></tr>
-      <tr><td>Urabá</td><td>68</td></tr>
-      <tr><td>Valle de Aburrá</td><td>1099</td></tr>
-      <tr><td>Total general</td><td>2404</td></tr>
-    </tbody>
-  </table>
-</div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Regiones</th>
+          <th>Totales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Bajo Cauca</td><td>159</td></tr>
+        <tr><td>Magdalena Medio</td><td>32</td></tr>
+        <tr><td>Nordeste</td><td>99</td></tr>
+        <tr><td>Norte</td><td>369</td></tr>
+        <tr><td>Occidente</td><td>108</td></tr>
+        <tr><td>Oriente</td><td>363</td></tr>
+        <tr><td>Suroeste</td><td>107</td></tr>
+        <tr><td>Urabá</td><td>68</td></tr>
+        <tr><td>Valle de Aburrá</td><td>1099</td></tr>
+        <tr><td><strong>Total general</strong></td><td><strong>2404</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
 
 </body>
 </html>
