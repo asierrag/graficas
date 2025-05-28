@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    .charts {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    canvas {
+      max-width: 400px;
+    }
+    h3 {
+      margin-top: 20px;
+      color: #23304e;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="color:#23304e">Distribución Regional de Empleados por Ubicación</h2>
+  <div class="charts">
+    <div>
+      <canvas id="santaRosaChart"></canvas>
+      <h3>UCN Santa Rosa de Osos</h3>
+    </div>
+    <div>
+      <canvas id="coltejerChart"></canvas>
+      <h3>UCN Coltejer</h3>
+    </div>
+  </div>
+
+  <script>
+    // Santa Rosa de Osos
+    new Chart(document.getElementById('santaRosaChart').getContext('2d'), {
+      type: 'pie',
+      data: {
+        labels: ['Norte', 'Bajo Cauca', 'Valle de Aburrá'],
+        datasets: [{
+          data: [50, 1, 3],
+          backgroundColor: ['#4CAF50', '#FF9800', '#2196F3'],
+          borderColor: '#fff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          animateRotate: true,
+          animateScale: true
+        },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => `${ctx.label}: ${ctx.raw} empleados`
+            }
+          }
+        }
+      }
+    });
+
+    // Coltejer
+    new Chart(document.getElementById('coltejerChart').getContext('2d'), {
+      type: 'pie',
+      data: {
+        labels: ['Norte', 'Valle de Aburrá', 'Oriente'],
+        datasets: [{
+          data: [1, 38, 3],
+          backgroundColor: ['#9C27B0', '#03A9F4', '#FFC107'],
+          borderColor: '#fff',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        animation: {
+          animateRotate: true,
+          animateScale: true
+        },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: (ctx) => `${ctx.label}: ${ctx.raw} empleados`
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
