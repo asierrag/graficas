@@ -6,27 +6,35 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
+      padding: 20px;
       text-align: center;
     }
     .charts {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     canvas {
-      max-width: 400px;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
     }
     h3 {
-      margin-top: 20px;
+      margin-top: 10px;
+      font-size: 16px;
       color: #23304e;
+    }
+    h2 {
+      color: #23304e;
+      font-size: 20px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
 
-  <h2 style="color:#23304e">Distribución Regional de Empleados por Ubicación</h2>
+  <h2>Distribución Regional de Empleados por Ubicación</h2>
   <div class="charts">
     <div>
       <canvas id="santaRosaChart"></canvas>
@@ -39,7 +47,6 @@
   </div>
 
   <script>
-    // Santa Rosa de Osos
     new Chart(document.getElementById('santaRosaChart').getContext('2d'), {
       type: 'pie',
       data: {
@@ -68,7 +75,6 @@
       }
     });
 
-    // Coltejer
     new Chart(document.getElementById('coltejerChart').getContext('2d'), {
       type: 'pie',
       data: {
@@ -97,6 +103,5 @@
       }
     });
   </script>
-
 </body>
 </html>
