@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Importar Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 800px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #23304e;
+      color: white;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    /* Colores personalizados para íconos */
+    .icon-filosofia     { color: #6a1b9a; }
+    .icon-psicologia    { color: #ef6c00; }
+    .icon-dialogo       { color: #0097a7; }
+    .icon-evangelizacion{ color: #8bc34a; }
+
+    h2 {
+      color: #23304e;
+      margin-bottom: 20px;
+    }
+
+    tfoot th {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Programa</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="material-symbols-outlined icon-filosofia">school</span>Filosofía</td>
+        <td>270</td>
+      </tr>
+      <tr>
+        <td><span class="material-symbols-outlined icon-psicologia">psychology</span>Psicología</td>
+        <td>822</td>
+      </tr>
+      <tr>
+        <td><span class="material-symbols-outlined icon-dialogo">diversity_3</span>Esp. en Diálogo Interreligioso e Intercultural</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td><span class="material-symbols-outlined icon-evangelizacion">menu_book</span>Esp. en Evangelización en Ambientes Virtuales</td>
+        <td>8</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>Total</th>
+        <th>1110</th>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>
