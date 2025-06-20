@@ -1,0 +1,159 @@
+<style>
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  background-color: #0a1a56;
+  color: white;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.tab-button:hover {
+  background-color: #d0d0d0;
+}
+
+.tab-button.active {
+  background-color: #0280ae;
+  color: white;
+  border-color: #0280ae;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tab-content {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  color: #0a1a56; /* Color del contenido */
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tab-content.active {
+  display: block;
+}
+</style>
+
+<div class="tabs-container">
+  <div class="tabs">
+    <button style="width: 100px; height: 70px;" class="tab-button active" data-tab="tab1">FECS</button>
+    <button style="width: 100px; height: 70px;" class="tab-button" data-tab="tab2">FICA</button>
+    <button style="width: 100px; height: 70px;" class="tab-button" data-tab="tab3">FCEAC</button>
+    <button style="width: 100px; height: 70px;" class="tab-button" data-tab="tab4">FHCE</button>
+  </div>
+<br><br>
+  <div class="tab-content active" id="tab1">
+    <h3>Facultad de Educación y Ciencias Sociales (FECS)</h3>
+    <h4>Pregrado</h4>
+    <ul>
+      <li>Ciencias Políticas</li>
+      <li>Comunicación Digital</li>
+      <li>Licenciatura en Educación Básica Primaria</li>
+      <li>Licenciatura en Educación Infantil</li>
+      <li>Licenciatura en Literatura y Lengua Castellana</li>
+      <li>Trabajo Social</li>
+    </ul>
+    <h4>Especializaciones</h4>
+    <ul>
+      <li>Gestión Gerontológica</li>
+      <li>Pedagogía de la Virtualidad</li>
+      <li>Innovación Social y Territorio (nuevo)</li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="tab2">
+    <h3>Facultad de Ingeniería y Ciencias Ambientales (FICA)</h3>
+    <h4>Tecnologías</h4>
+    <ul>
+      <li>Desarrollo de Software</li>
+      <li>Gestión de Agroindustrias Alimenticias</li>
+      <li>Gestión de Plantaciones Forestales</li>
+    </ul>
+    <h4>Pregrado</h4>
+    <ul>
+      <li>Ciencias Ambientales</li>
+      <li>Ingeniería en Analítica de Datos</li>
+      <li>Ingeniería Informática</li>
+    </ul>
+    <h4>Especializaciones</h4>
+    <ul>
+      <li>Gerencia Agropecuaria</li>
+      <li>Gestión Ambiental</li>
+      <li>Gestión de Infraestructura Tecnológica</li>
+      <li>Gestión de Seguridad y Riesgo Informático</li>
+      <li>Gestión del Teletrabajo</li>
+      <li>Inteligencia de Negocios</li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="tab3">
+    <h3>Facultad de Ciencias Económicas, Administrativas y Contables (FCEAC)</h3>
+    <h4>Tecnologías</h4>
+    <ul>
+      <li>Gestión de Servicios Financieros</li>
+    </ul>
+    <h4>Pregrado</h4>
+    <ul>
+      <li>Administración de Empresas</li>
+      <li>Administración Financiera</li>
+      <li>Contaduría Pública</li>
+      <li>Mercadeo</li>
+      <li>Negocios Internacionales</li>
+    </ul>
+    <h4>Especializaciones</h4>
+    <ul>
+      <li>Gerencia de Mercadeo</li>
+      <li>Gerencia de Negocios Internacionales</li>
+      <li>Gerencia de Proyectos</li>
+      <li>Gerencia Financiera</li>
+      <li>Especialización en Gerencia Tributaria</li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="tab4">
+    <h3>Facultad de Humanidades y Ciencias Eclesiásticas (FHCE)</h3>
+    <h4>Pregrado</h4>
+    <ul>
+      <li>Arte Digital (nuevo)</li>
+      <li>Filosofía</li>
+      <li>Psicología (Acreditado en Alta Calidad)</li>
+    </ul>
+    <h4>Especializaciones</h4>
+    <ul>
+      <li>Diálogo Interreligioso e Intercultural</li>
+      <li>Evangelización en Ambientes Virtuales</li>
+    </ul>
+  </div>
+</div>
+<script>
+  const buttons = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      const tabId = button.getAttribute('data-tab');
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
+</script>
