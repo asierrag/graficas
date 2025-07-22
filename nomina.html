@@ -56,10 +56,10 @@
     </div>
 
     <div class="legend">
-      <div><span style="background:#3f51b5;"></span> Administración: 32%</div>
-      <div><span style="background:#00bcd4;"></span> ETDH: 2%</div>
-      <div><span style="background:#cddc39;"></span> Cibercolegio: 17%</div>
-      <div><span style="background:#ff7043;"></span> Nómina docente: 49%</div>
+      <div><span style="background:#3f51b5;"></span> Personal Administrativo: 43%</div>
+      <div><span style="background:#00bcd4;"></span> Aprendices y Prácticantes: 7%</div>
+      <div><span style="background:#cddc39;"></span> Cibercolegio: 14%</div>
+      <div><span style="background:#ff7043;"></span>Docentes: 36%</div>
     </div>
   </div>
 
@@ -68,9 +68,9 @@
     const chart = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Administración', 'ETDH', 'Cibercolegio', 'Nómina docente'],
+        labels: ['Administrativos', 'Aprendices y Prácticantes', 'Cibercolegio', 'Docentes'],
         datasets: [{
-          data: [32, 2, 17, 49],
+          data: [43, 7, 14, 36],
           backgroundColor: [
             '#3f51b5',
             '#00bcd4',
