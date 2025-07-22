@@ -1,0 +1,172 @@
+<style>
+  .chart-wrapper {
+    max-width: 700px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-title {
+    font-weight: 900;
+    font-size: 2rem;
+    color: #0a1a56;
+    margin-bottom: 16px;
+    user-select: none;
+  }
+
+  .legend-container {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    user-select: none;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1rem;
+  }
+
+  .legend-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  .bars-container {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bars-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 10px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-sizing: border-box;
+  }
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    height: 180px;
+  }
+
+  .bar {
+    width: 40px;
+    height: 0;
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    animation: growHeight 1.2s ease forwards;
+  }
+
+  .bar.permanencia {
+    background-color: #0280ae;
+  }
+
+  .bar.desercion {
+    background-color: #89f5ff;
+  }
+
+  .bar::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    color: #333;
+    font-size: 0.9rem;
+  }
+
+  .line-title {
+    margin-top: 16px;
+    font-weight: 700;
+    color: #0a1a56;
+    user-select: none;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  @keyframes growHeight {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--bar-height);
+    }
+  }
+</style>
+
+<div class="chart-wrapper">
+  <div class="chart-title">Permanencia</div>
+
+  <br><br>
+
+  <div class="legend-container">
+    <div class="legend-item">
+      <div class="legend-box" style="background:#0280ae;"></div> Permanencia
+    </div>
+    <div class="legend-item">
+      <div class="legend-box" style="background:#89f5ff;"></div> Deserción
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="bars-container">
+    <!-- Cibercolegio -->
+    <div style="align-items: center;"  class="bars-group">
+      <div class="bars">
+        <div class="bar permanencia" style="--bar-height: 87%; align-items: center;" data-label="87%"></div>
+        <div class="bar desercion" style="--bar-height: 13%; align-items: center;" data-label="13%"></div>
+      </div>
+      <div style="align-items: center;"  class="line-title">Cibercolegio</div>
+    </div>
+
+    <!-- ETDH -->
+    <div style="align-items: center;"  class="bars-group">
+      <div class="bars">
+        <div class="bar permanencia" style="--bar-height: 94%; align-items: center;" data-label="94%"></div>
+        <div class="bar desercion" style="--bar-height: 6%; align-items: center;" data-label="6%"></div>
+      </div>
+      <div style="align-items: center;"  class="line-title">ETDH</div>
+    </div>
+
+    <!-- Educación Superior -->
+    <div style="align-items: center;"  class="bars-group">
+      <div class="bars">
+        <div class="bar permanencia" style="--bar-height: 85.51%; align-items: center;" data-label="85.51%"></div>
+        <div class="bar desercion" style="--bar-height: 14.49%; align-items: center;" data-label="14.49%"></div>
+      </div>
+      <div style="align-items: center;" class="line-title">Educación Superior</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach(bar => {
+      bar.style.height = '0';
+      setTimeout(() => {
+        bar.style.height = bar.style.getPropertyValue('--bar-height');
+      }, 100);
+    });
+  });
+</script>
