@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabla Estilo UCN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    thead {
+      background-color: #0d1b52;
+      color: white;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #e8f0fa;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f1f6fc;
+    }
+
+    tbody tr:last-child {
+      background-color: #d9e6f5;
+      font-weight: bold;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .material-symbols-outlined {
+      font-size: 1rem;
+      vertical-align: middle;
+      margin-right: 0.4rem;
+    }
+
+    .icon-docente { color: #1a73e8; }
+    .icon-empleado { color: #34a853; }
+    .icon-fijo { color: #fbbc04; }
+    .icon-indefinido { color: #ea4335; }
+    .icon-obra { color: #9c27b0; }
+    .icon-pasante { color: #00acc1; }
+    .icon-adhonorem { color: #ff7043; }
+      .descripcion-col {
+    width: 200px; /* o usa 15ch si prefieres limitar por caracteres */
+    max-width: 220px;
+    white-space: normal; /* permite salto de línea si es necesario */
+    word-wrap: break-word;
+  }
+  </style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th class="descripcion-col">Descripción</th>
+      <th class="descripcion-col"><span class="material-symbols-outlined icon-docente">school</span>Docentes</th>
+      <th class="descripcion-col">Tipo de contrato Docentes</th>
+      <th class="descripcion-col"><span class="material-symbols-outlined icon-empleado">badge</span>Empleados</th>
+      <th class="descripcion-col">Tipo de contrato Empleados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Educación Básica y Media</td>
+      <td>43</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 30</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 13</li>
+        </ul>
+      </td>
+      <td>34</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 17</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 10</li>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 1</li>
+          <li><span class="material-symbols-outlined icon-docente">school</span>Especial Aprendizaje T.F.: 6</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Educación para el Trabajo y el Desarrollo Humano</td>
+      <td>2</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 2</li>
+        </ul>
+      </td>
+      <td>7</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 1</li>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 2</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 3</li>
+          <li><span class="material-symbols-outlined icon-pasante">psychology</span>Pasantía: 1</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Educación Superior</td>
+      <td>151</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 17</li>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 108</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 26</li>
+        </ul>
+      </td>
+      <td>37</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 18</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 19</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Empleados Generales</td>
+      <td>0</td>
+      <td>0</td>
+      <td>117</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 57</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 37</li>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 2</li>
+          <li><span class="material-symbols-outlined icon-docente">school</span>Especial Aprendizaje T.F.: 18</li>
+          <li><span class="material-symbols-outlined icon-adhonorem">volunteer_activism</span>Adhonorem: 3</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Extensión</td>
+      <td>8</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 7</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 1</li>
+        </ul>
+      </td>
+      <td>5</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-fijo">contract</span>Término Fijo: 4</li>
+          <li><span class="material-symbols-outlined icon-indefinido">verified_user</span>Término Indefinido: 1</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Proyectos SAP</td>
+      <td>-</td>
+      <td>-</td>
+      <td>178</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 178</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Proyectos Cibercolegio</td>
+      <td>-</td>
+      <td>-</td>
+      <td>42</td>
+      <td>
+        <ul>
+          <li><span class="material-symbols-outlined icon-obra">construction</span>Obra o Labor: 42</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>204</td>
+      <td></td>
+      <td>420</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
