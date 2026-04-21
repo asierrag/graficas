@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: transparent; /* Sin fondo */
+            color: #0d1b52;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Contenedor de las pestañas */
+        .tabs-container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Botones de las pestañas */
+        .tab-menu {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: white;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Estado Activo */
+        .tab-button.active {
+            background-color: #007da4; /* Azul de tus recortes */
+            color: white;
+        }
+
+        /* Contenido de las pestañas */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Estilos de Texto */
+        h2 {
+            color: #0d1b52;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            color: #0d1b52;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        /* Animación suave al cambiar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="tabs-container">
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'fecs')">FECS</button>
+        <button class="tab-button" onclick="openTab(event, 'fhce')">FHCE</button>
+        <button class="tab-button" onclick="openTab(event, 'fica')">FICA</button>
+    </div>
+
+    <div id="fecs" class="tab-content active">
+        <h2>Facultad de Educación y Ciencias Sociales (FECS)</h2>
+        <h3>Pregrado</h3>
+        <ul>
+            <li>Investigación Criminal (UdeM)</li>
+        </ul>
+     <!--   <h3>Especializaciones</h3>
+        <ul>
+            <li>Atención Integral a la Primera Infancia (UCN)</li>
+            <li>Derecho Probatorio Penal (UdeM)</li>
+            <li>Gerencia Educativa (USB)</li>
+            <li>Psicología de las Organizaciones y del Trabajo (USB)</li>
+        </ul>-->
+        <h3>Posgrados (maestría)</h3>
+        <ul>
+            <li>Educación (UCO)</li>
+        </ul>
+    </div>
+
+    <div id="fhce" class="tab-content">
+        <h2>Facultad de Humanidades y Ciencias Eclesiásticas (FHCE)</h2>
+        <h3>Pregrado</h3>
+        <ul>
+            <li>Teología (UCO)</li>
+        </ul>
+        <h3>Especializaciones</h3>
+        <ul>
+            <li>Especialización en Psicología de las Organizaciones y del Trabajo (USB)</li>
+        </ul>
+    </div>
+
+    <div id="fica" class="tab-content">
+        <h2>Facultad de Ingeniería y Ciencias Ambientales (FICA)</h2>
+        <h3>Posgrados (maestría)</h3>
+        <ul>
+            <li>Sostenibilidad (UPB)</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        
+        // Esconder todos los contenidos
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+
+        // Quitar la clase active de todos los botones
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // Mostrar la pestaña actual y añadir clase active al botón
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
