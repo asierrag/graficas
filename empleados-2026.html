@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tabla Estilo UCN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            padding: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Fundamental para que los bordes se vean limpios */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            background: white;
+            /* Borde exterior sutil */
+            border: 1px solid #c2cfe0; 
+        }
+
+        thead {
+            background-color: #0d1b52;
+            color: white;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            vertical-align: middle;
+            /* Bordes internos: Color azul grisáceo suave */
+            border: 1px solid #c2cfe0; 
+        }
+
+        th {
+            border-bottom: 2px solid #08123a; /* Un poco más fuerte en el cabezote */
+        }
+
+        /* Colores de fondo originales */
+        tbody tr:nth-child(even) {
+            background-color: #e8f0fa;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f1f6fc;
+        }
+
+        /* Fila de categorías (DOCENTES / EMPLEADOS) */
+        .header-blue {
+            background-color: #d9e6f5 !important;
+            font-weight: bold;
+            text-align: center; /* Centramos el título de sección para mejor orden */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Fila de totales finales */
+        .total-final {
+            background-color: #d9e6f5 !important;
+            font-weight: bold;
+        }
+
+        .material-symbols-outlined {
+            font-size: 1rem;
+            vertical-align: middle;
+            margin-right: 0.4rem;
+        }
+
+        /* Iconos */
+        .icon-docente { color: #1a73e8; }
+        .icon-fijo { color: #fbbc04; }
+        .icon-indefinido { color: #ea4335; }
+        .icon-obra { color: #9c27b0; }
+        .icon-adhonorem { color: #ff7043; }
+
+        .descripcion-col {
+            width: 200px;
+            max-width: 220px;
+            white-space: normal;
+            word-wrap: break-word;
+            font-weight: 600; /* Un poco más de peso a la descripción */
+        }
+    </style>
+</head>
+
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th class="descripcion-col">Descripción</th>
+            <th>
+                <span class="material-symbols-outlined icon-docente">school</span>Docentes
+            </th>
+            <th>Tipo de contrato Docentes</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr class="header-blue">
+            <td colspan="4">DOCENTES</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" class="descripcion-col">Educación Básica y Media</td>
+            <td>29</td>
+            <td><span class="material-symbols-outlined icon-fijo">contract</span>Contrato a Término Fijo</td>
+            <td rowspan="2" style="text-align: center;">42</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td><span class="material-symbols-outlined icon-indefinido">verified_user</span>Contrato a Término Indefinido</td>
+        </tr>
+
+        <tr>
+            <td class="descripcion-col">Educación para el Trabajo y el Desarrollo Humano</td>
+            <td>4</td>
+            <td><span class="material-symbols-outlined icon-obra">construction</span>Contrato Obra o labor</td>
+            <td style="text-align: center;">4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" class="descripcion-col">Educación Superior</td>
+            <td>112</td>
+            <td><span class="material-symbols-outlined icon-fijo">contract</span>Contrato a Término Fijo</td>
+            <td rowspan="2" style="text-align: center;">137</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td><span class="material-symbols-outlined icon-indefinido">verified_user</span>Contrato a Término Indefinido</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" class="descripcion-col">Extensión (Centro de Idiomas)</td>
+            <td>7</td>
+            <td><span class="material-symbols-outlined icon-fijo">contract</span>Contrato a Término Fijo</td>
+            <td rowspan="2" style="text-align: center;">8</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><span class="material-symbols-outlined icon-indefinido">verified_user</span>Contrato a Término Indefinido</td>
+        </tr>
+
+        <tr class="total-final">
+            <td colspan="3">TOTAL DOCENTES</td>
+            <td style="text-align: center;">191</td>
+        </tr>
+
+        <tr class="header-blue">
+            <td colspan="4">EMPLEADOS</td>
+        </tr>
+
+        <tr>
+            <td rowspan="3" class="descripcion-col">Administrativos</td>
+            <td>79</td>
+            <td><span class="material-symbols-outlined icon-fijo">contract</span>Contrato a Término Fijo</td>
+            <td rowspan="3" style="text-align: center;">167</td>
+        </tr>
+        <tr>
+            <td>86</td>
+            <td><span class="material-symbols-outlined icon-indefinido">verified_user</span>Contrato a Término Indefinido</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><span class="material-symbols-outlined icon-obra">construction</span>Contrato Obra o labor</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" class="descripcion-col">Aprendiz</td>
+            <td>17</td>
+            <td><span class="material-symbols-outlined icon-docente">school</span>Especial Aprendizaje Término Fijo</td>
+            <td rowspan="2" style="text-align: center;">18</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><span class="material-symbols-outlined icon-adhonorem">volunteer_activism</span>Contrato Servicios Adhonorem</td>
+        </tr>
+
+        <tr>
+            <td class="descripcion-col">Proyecto Resilientes</td>
+            <td>4</td>
+            <td><span class="material-symbols-outlined icon-obra">construction</span>Contrato Obra o labor</td>
+            <td style="text-align: center;">4</td>
+        </tr>
+
+        <tr>
+            <td class="descripcion-col">Proyecto SAP</td>
+            <td>163</td>
+            <td><span class="material-symbols-outlined icon-obra">construction</span>Contrato Obra o labor</td>
+            <td style="text-align: center;">163</td>
+        </tr>
+
+        <tr class="total-final">
+            <td colspan="3">TOTAL EMPLEADOS GENERAL</td>
+            <td style="text-align: center;">352</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
